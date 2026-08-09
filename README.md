@@ -9,9 +9,10 @@ closed lab platform.
 
 - Scores ASR transcripts against reference text using WER/CER and a few
   agreement metrics.
-- Flags annotation inconsistencies (filler tags, timestamp spacing, speaker
-  boundaries) so human reviewers can fix them before training.
+- Flags annotation inconsistencies (filler tags such as `[uh]`/`[um]`, timestamp
+  spacing, speaker boundaries) so human reviewers can fix them before training.
 - Runs as a single command, outputs a short markdown report.
+- No third-party dependencies: standard library only, runs anywhere with Python 3.8+.
 
 ## Why
 
@@ -22,9 +23,28 @@ audit, and extend.
 ## Usage
 
 ```bash
-python score.py --ref ref.txt --hyp hyp.txt --out report.md
+python score.py --ref examples/sample_ref.txt --hyp examples/sample_hyp.txt --out report.md
 ```
 
-## Status
+Input format: one utterance per line in each file, lines matched by position.
+Filler tags inside brackets are counted and reported.
 
-Early, maintained alongside coursework. Contributions and issue reports welcome.
+## Tests
+
+```bash
+python tests/test_score.py
+```
+
+## CI
+
+GitHub Actions runs the test suite and a CLI smoke test on Python 3.8 and 3.11
+for every push and pull request (see `.github/workflows/ci.yml`).
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md). Scope is kept narrow and dependency-free
+on purpose.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
