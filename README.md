@@ -90,16 +90,10 @@ If you only need WER/CER and already use `jiwer`, keep using it — this toolkit
 
 ## Documentation
 
-Full documentation is available at [veyhthan.github.io/asr-eval-toolkit](https://veyhthan.github.io/asr-eval-toolkit/).
+Full documentation is available in the [`docs/`](docs/) folder:
 
-- [Installation](https://veyhthan.github.io/asr-eval-toolkit/installation/)
-- [Quick Start](https://veyhthan.github.io/asr-eval-toolkit/quick-start/)
-- [CLI Reference](https://veyhthan.github.io/asr-eval-toolkit/cli-reference/)
-- [Python API](https://veyhthan.github.io/asr-eval-toolkit/python-api/)
-- [Input Format](https://veyhthan.github.io/asr-eval-toolkit/input-format/)
-- [Output Formats](https://veyhthan.github.io/asr-eval-toolkit/output-formats/)
-- [Filler Tags](https://veyhthan.github.io/asr-eval-toolkit/filler-tags/)
-- [Extending the Toolkit](https://veyhthan.github.io/asr-eval-toolkit/extending/)
+- [Usage Guide](docs/usage.md) — installation, quick start, CLI reference, Python API, input/output formats, filler tags
+- [API Reference](docs/api.md) — detailed function signatures, parameters, return types, type checking info
 
 ## Features
 
