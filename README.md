@@ -78,9 +78,9 @@ Running the toolkit on the included sample files produces a markdown report like
 # ASR scoring report
 
 - Utterances: 4
-- Mean WER: 0.155
-- Mean CER: 0.088
-- Filler tags seen: {'[uh]': 1, '[um]': 1}
+- Mean WER: 0.132
+- Mean CER: 0.092
+- Filler tags seen: {'uh': 1, 'um': 1}
 ```
 
 The report gives you the means up front, and you can open the full file for per-utterance detail when you need to dig into a specific failure.
