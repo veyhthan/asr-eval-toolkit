@@ -76,3 +76,4 @@ dmypy.json
 *.swp
 *.swo
 *~
+site/
