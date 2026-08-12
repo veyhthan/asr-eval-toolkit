@@ -184,7 +184,7 @@ A [CITATION.cff](CITATION.cff) file is included for automated citation tools.
 - [x] CITATION.cff for academic citation
 - [x] pyproject.toml with full Python package metadata
 - [x] PyPI installability (`pip install asr-eval-toolkit`)
-- [x] MkDocs Material documentation
+- [ ] MkDocs Material documentation
 - [x] GitHub release workflow (auto-publish to PyPI)
 - [x] Pull request template
 - [x] Issue template configuration
