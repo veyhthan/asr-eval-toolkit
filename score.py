@@ -10,6 +10,16 @@ from collections import Counter
 
 
 def edit_distance(a, b):
+    """Levenshtein edit distance between two sequences.
+
+    Args:
+        a: First sequence (list of tokens or characters).
+        b: Second sequence.
+
+    Returns:
+        Minimum number of insertions, deletions, or substitutions.
+
+    """
     la, lb = len(a), len(b)
     dp = list(range(lb + 1))
     for i in range(1, la + 1):
@@ -24,10 +34,31 @@ def edit_distance(a, b):
 
 
 def tokenize(text):
+    """Split text into word tokens, lowercased.
+
+    Args:
+        text: Input text.
+
+    Returns:
+        List of word tokens, lowercased.
+
+    """
     return re.findall(r"\S+", text.lower())
 
 
 def score_pair(ref, hyp):
+    """Score a single reference/hypothesis pair.
+
+    Computes word error rate (WER) and character error rate (CER).
+
+    Args:
+        ref: Reference transcription.
+        hyp: Hypothesis (ASR output) transcription.
+
+    Returns:
+        Tuple of (wer, cer). Both are floats.
+
+    """
     rt, ht = tokenize(ref), tokenize(hyp)
     wer = edit_distance(rt, ht) / max(len(rt), 1)
     rc, hc = list(ref.replace(" ", "")), list(hyp.replace(" ", ""))
@@ -36,6 +67,7 @@ def score_pair(ref, hyp):
 
 
 def main():
+    """Entry point for the standalone score.py script."""
     ap = argparse.ArgumentParser()
     ap.add_argument("--ref", required=True)
     ap.add_argument("--hyp", required=True)

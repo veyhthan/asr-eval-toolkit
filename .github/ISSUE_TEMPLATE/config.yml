@@ -1,0 +1,6 @@
+# Issue templates configuration for asr-eval-toolkit
+
+contact_links:
+  - name: Ask a question
+    url: https://github.com/veyhthan/asr-eval-toolkit/issues
+    about: Ask a question about usage, installation, or the API

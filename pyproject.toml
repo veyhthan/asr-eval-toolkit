@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=64", "wheel"]
+requires = ["setuptools>=64", "wheel", "setuptools-scm>=8"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -12,10 +12,18 @@ requires-python = ">=3.8"
 authors = [
     {name = "Veyhthan Saravanan", email = "veyhthan@gmail.com"}
 ]
+maintainers = [
+    {name = "Veyhthan Saravanan", email = "veyhthan@gmail.com"}
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
     "Intended Audience :: Science/Research",
     "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
@@ -24,18 +32,75 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
     "Topic :: Scientific/Engineering :: Information Analysis",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
     "Topic :: Multimedia :: Sound/Audio :: Speech",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+keywords = [
+    "asr",
+    "speech-recognition",
+    "wer",
+    "cer",
+    "evaluation",
+    "annotation",
+    "transcription",
+    "nlp",
+    "speech",
 ]
 dependencies = []
 
 [project.optional-dependencies]
 dev = [
     "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "ruff>=0.4",
 ]
+test = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+asr-eval = "asr_eval_toolkit.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/veyhthan/asr-eval-toolkit"
+Documentation = "https://github.com/veyhthan/asr-eval-toolkit#readme"
+Issues = "https://github.com/veyhthan/asr-eval-toolkit/issues"
+Funding = "https://github.com/sponsors/veyhthan"
 
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["asr_eval_toolkit*"]
 
+[tool.setuptools.package-data]
+asr_eval_toolkit = ["py.typed"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "--cov=asr_eval_toolkit --cov-report=term-missing --cov-report=html"
+filterwarnings = ["error::DeprecationWarning"]
+
+[tool.cov]
+source = ["asr_eval_toolkit"]
+
+[tool.ruff]
+target-version = "py38"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "D", "UP", "B", "SIM"]
+ignore = ["D100", "D104", "D105", "D101", "D102", "D103"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["asr_eval_toolkit"]
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.hatch.version]
+path = "asr_eval_toolkit/__init__.py"
